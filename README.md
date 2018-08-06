@@ -1,24 +1,29 @@
 # README
+A site where you have a secret page listing the users. 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Admire the site
+The link : https://clubprivenancy.herokuapp.com/
 
-Things you may want to cover:
+## Installation on computer
 
-* Ruby version
+Version of ruby : **'2.5.1'**  
+ 
+Execute the following line to install the necessary gems and the correct version of Ruby:  
+```
+$ bundle install --without production
+```
 
-* System dependencies
+Execute this line to create the database:
+```
+$ rails db:migrate
+```
 
-* Configuration
+## Display the database
 
-* Database creation
+* Open the file **development.sqlite3** (in the db file) with **DB Browser for SQLite**
+* Do not forget to actualize and enjoy
 
-* Database initialization
+--------------------------------------
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+MADE BY :
+* Nancy CASSAND
