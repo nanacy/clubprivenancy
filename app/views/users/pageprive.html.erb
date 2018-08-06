@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<header>
+	     <nav class="nav nav-pills nav-fill">
+             <a class="nav-item nav-link" href=<%=root_path %>>Accueil</a>
+             <% if logged_in? %>
+                <a class="nav-item nav-link active" href="/prive">Club Privé</a>
+                <%= link_to "Log out", "/login", method: :delete, class: 'nav-link nav-item' %>
+             <% else %>
+             	<a class="nav-item nav-link" href="/new">Create account</a>
+                <a class="nav-item nav-link " href="/login">Log in</a>
+             <% end %>
+         </nav>
+	</header>
+
+	<% if !logged_in? %>
+		<div class="jumbotron">
+			<p>Content only available for logged users.</p>
+			<p>Please log in : <a href='/login'>Here</a></p>
+		</div>
+
+	<% else %>
+		<div class="jumbotron">
+			<h1>Users list</h1>
+			<p>
+				<ul>
+					<% @user.reverse.each do |i| %>
+					<li>
+						<%= i.first_name %> <%= i.last_name %><br>
+						<%= i.email %>
+					</li><br>
+					<% end %>
+				</ul>
+			</p>
+		</div>
+	<% end %>
+
+</body>
+</html>

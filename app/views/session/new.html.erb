@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<header>
+	     <nav class="nav nav-pills nav-fill">
+             <a class="nav-item nav-link" href=<%=root_path %>>Accueil</a>
+             <% if logged_in? %>
+                <a class="nav-item nav-link" href="/prive">Club Privé</a>
+                <%= link_to "Log out", "/login", method: :delete, class: 'nav-link nav-item' %>
+             <% else %>
+             	<a class="nav-item nav-link" href="/new">Create account</a>
+                <a class="nav-item nav-link active" href="/login">Log in</a>
+             <% end %>
+         </nav>
+	</header>
+
+	<div class="jumbotron">
+		<h1>Log in</h1>
+
+		 <form action="/login" method="post">
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+            <label>Email:</label>
+            <input type="text" name="email" class="form-control">
+
+            <label>Code secret:</label>
+            <input type="text" name="mdp" class="form-control" placeholder="abcd">
+
+            <br>
+            <input type="submit" name="Envoyer" value="Submit" class="btn btn-lg btn-success">
+
+            <br><small>You don't have an account yet ? <a href='/new'> Create an account</a></small>
+        </form>
+	</div>
+
+</body>
+</html>

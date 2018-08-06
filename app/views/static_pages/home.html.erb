@@ -4,8 +4,31 @@
 	<title></title>
 </head>
 <body>
-	<h1>Home</h1>
-	<p>~Home page still waiting for construction~</p>
+	<header>
+	     <nav class="nav nav-pills nav-fill">
+             <a class="nav-item nav-link active" href=<%=root_path %>>Accueil</a>
+             <% if logged_in? %>
+                <a class="nav-item nav-link" href="/prive">Club Privé</a>
+                <%= link_to "Log out", "/login", method: :delete, class: 'nav-link nav-item' %>
+             <% else %>
+             	<a class="nav-item nav-link" href="/new">Create account</a>
+                <a class="nav-item nav-link " href="/login">Log in</a>
+             <% end %>
+         </nav>
+	</header>
+
+	<div class="jumbotron">
+		<h1>Home</h1>
+		<p>~Welcome dear walkers !~</p>
+	</div>
+
+	<div class="jumbotron">
+		 <% if logged_in? %>
+			Lien vers le club privé : <a href="/prive">En route vers la page secrète!</a>
+		 <% else %>
+			Log in : <a href="/login">Here!</a><br>
+		 <% end %>
+	</div>
 
 </body>
 </html>
